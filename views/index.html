@@ -2,4 +2,18 @@
 
 {% block content %}
   <h1>Welcome to {{ title }}</h1>
+
+  <form action="/note" method="POST">
+    <input type="text" placeholder="Title" name="title">
+    <input type="text" placeholder="Note Content" name="content">
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="note">
+    {% for note in data.notes %}
+    <h2>{{ note.title }}</h2>
+    <p>{{ note.content }}</p>
+    {% endfor %}
+  </div>
+
 {% endblock %}
